@@ -81,11 +81,32 @@ services:
     restart: unless-stopped
   my-vscode:
     environment:
-      - DISPLAY=192.168.56.1:0.0
+      - DISPLAY
     image: asap397/my-vscode
     ports:
       - 5006:5006
     container_name: my-vscode
+  apache-hadoop:
+    environment:
+      - DISPLAY
+    image: asap397/apache-hadoop
+    ports:
+      - 5007:5007
+    container_name: apache-hadoop
+  apache-spark:
+    environment:
+      - DISPLAY
+    image: asap397/apache-spark
+    ports:
+      - 5008:5008
+    container_name: apache-spark
+  tableau:
+    environment:
+      - DISPLAY
+    image: asap397/tableau
+    ports:
+      - 5009:5009
+    container_name: tableau
   sonarqube:
     container_name: sonarqube
     ports:
@@ -97,14 +118,14 @@ services:
       - DISPLAY
     image: asap397/my-sonarqube
     ports:
-      - 5009:5009
-  tensorflow-server:
+      - 5010:5010
+  my-tensorflow-term:
     environment:
-      - MODEL_NAME
-    image: asap397/my-tensorflow-server
+      - DISPLAY
+    image: asap397/my-tensorflow-term
     ports:
-      - 8501:8501
-    container_name: my-tensorflow-server
+      - 5011:5011
+    container_name: my-tensorflow-term
   markdown-server:
     image: v4tech/markdown-editor
     ports:
@@ -115,4 +136,4 @@ services:
       - DISPLAY
     image: asap397/my-markdown
     ports:
-      - 5011:5011
+      - 5012:5012
