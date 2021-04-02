@@ -1,0 +1,118 @@
+version: "3"
+
+services:
+  maingui:
+    environment:
+      - DISPLAY
+    image: asap397/maingui
+    container_name: maingui
+  rstudio-server:
+    environment:
+      - DISABLE_AUTH=true
+    image: rocker/rstudio
+    ports:
+      - 8787:8787
+    container_name: rstudio-server
+  my-rstudio:
+    environment:
+      - DISPLAY
+    image: asap397/my-rstudio
+    ports:
+      - 5000:5000
+    container_name: my-rstudio
+  spyder:
+    environment:
+      - DISPLAY
+    image: asap397/spyder
+    ports:
+      - '5001:5001'
+    container_name: spyder
+  ibmsas:
+    environment:
+      - DISPLAY
+    image: asap397/ibmsas
+    ports:
+      - 5002:5002
+    container_name: ibmsas
+  git:
+    environment:
+      - DISPLAY
+    image: asap397/git
+    ports:
+      - 5003:5003
+    container_name: git
+  the-jupyter:
+    image: jupyter/minimal-notebook
+    environment:
+      - JUPYTER_TOKEN=easy
+    ports:
+      - 8888:8888
+    container_name: the-jupyter
+  my-jupyter:
+    environment:
+      - DISPLAY
+    image: asap397/my-jupyter
+    ports:
+      - 5004:5004
+    container_name: my-jupyter
+  orange:
+    environment:
+      - DISPLAY
+    image: asap397/orange
+    ports:
+      - 5005:5005
+    container_name: orange
+  code-server:
+    image: ghcr.io/linuxserver/code-server
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - PASSWORD=password #optional
+      - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=password #optional
+      - SUDO_PASSWORD_HASH= #optional
+      - PROXY_DOMAIN=code-server.my.domain #optional
+    volumes:
+      - /path/to/appdata/config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+  my-vscode:
+    environment:
+      - DISPLAY=192.168.56.1:0.0
+    image: asap397/my-vscode
+    ports:
+      - 5006:5006
+    container_name: my-vscode
+  sonarqube:
+    container_name: sonarqube
+    ports:
+        - '9001:9000'
+        - '9092:9092'
+    image: sonarqube
+  my-sonarqube:
+    environment:
+      - DISPLAY
+    image: asap397/my-sonarqube
+    ports:
+      - 5009:5009
+  tensorflow-server:
+    environment:
+      - MODEL_NAME
+    image: asap397/my-tensorflow-server
+    ports:
+      - 8501:8501
+    container_name: my-tensorflow-server
+  markdown-server:
+    image: v4tech/markdown-editor
+    ports:
+      - 12345:80
+    container_name: markdown-server
+  my-markdown:
+    environment:
+      - DISPLAY
+    image: asap397/my-markdown
+    ports:
+      - 5011:5011
