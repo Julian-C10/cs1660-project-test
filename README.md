@@ -1,6 +1,8 @@
 # cs1660-project-test
 This is the repository for my Course Project Option #1 in CS 1660.
 
+Watch `projectVideo.mp4` in the repository to see a live demo of the GUI app functioning and some of the code I wrote to get it to work.
+
 Prerequisites:
     - Have Docker installed on your machine
 
