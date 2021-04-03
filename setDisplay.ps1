@@ -6,8 +6,6 @@ foreach ($ipAdress in $ipAdresses)
     if ($LastExitCode -eq 0 -or $LastExitCode -eq 130) {
         $dispLine = "DISPLAY=${DISPLAY}"
         Set-Content -Path "./.env" -Value $dispLine
-        Add-Content -Path "./.env" -Value "MODEL_NAME=half_plus_two"
-        Get-Content "./.env"
         break
     }
 }
