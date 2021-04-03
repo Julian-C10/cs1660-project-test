@@ -69,11 +69,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - PASSWORD=password #optional
-      - HASHED_PASSWORD= #optional
-      - SUDO_PASSWORD=password #optional
-      - SUDO_PASSWORD_HASH= #optional
-      - PROXY_DOMAIN=code-server.my.domain #optional
+      - PASSWORD=password
+      - HASHED_PASSWORD= 
+      - SUDO_PASSWORD=password 
+      - SUDO_PASSWORD_HASH= 
+      - PROXY_DOMAIN=code-server.my.domain 
     volumes:
       - /path/to/appdata/config:/config
     ports:
@@ -119,13 +119,15 @@ services:
     image: asap397/my-sonarqube
     ports:
       - 5010:5010
-  my-tensorflow-term:
+  my-tensorflow:
     environment:
       - DISPLAY
-    image: asap397/my-tensorflow-term
+    image: asap397/my-tensorflow
     ports:
-      - 5011:5011
-    container_name: my-tensorflow-term
+      - 5011:6002
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: my-tensorflow
   markdown-server:
     image: v4tech/markdown-editor
     ports:
