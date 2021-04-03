@@ -1,7 +1,7 @@
 # cs1660-project-test
 This is the repository for my Course Project Option #1 in CS 1660.
 
-Prerequisites for running:
+Prerequisites:
     - Have Docker installed on your machine
 
 Steps to run:
@@ -18,4 +18,4 @@ Common errors:
 
     Can't connect to X11 Window server using "" as the value of the DISPLAY...
 
-    This error occurs on Windows if you did not run `setDisplay.ps1` before running `docker-compose up`, and may typically occur on a linux-based machine if it is a virtual machine. In this case, you will have to change the value of the DISPLAY variable in your environment by going to the terminal and typing `export DISPLAY=<your host IP address>:0`, replacing <your host ip address> with the IP address of your physical machine the virtual machine is running on.
+This error occurs on Windows if you did not run `setDisplay.ps1` before running `docker-compose up`, and may typically occur on a linux-based machine if it is a virtual machine. In this case, you will have to change the value of the DISPLAY variable in your environment by going to the terminal and typing `export DISPLAY=<your host IP address>:0`, replacing <your host ip address> with the IP address of your physical machine the virtual machine is running on.
